@@ -15,47 +15,28 @@ import java.util.ArrayList;
 public class Competition {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="IdCompetition")
 	private int _idCompetition;
 	
+	@Column(name = "DeadlineForApplication")
     private LocalDate _deadlineForApplication;
+	
     private ArrayList<Candidate> _candidates = new ArrayList<Candidate>();
     private ArrayList<Audition> _auditions = new ArrayList<Audition>();
 
     public Competition() {
     	
     }
+
+    public void addCandidate(Candidate c) { _candidates.add(c); }
     
-    public Competition(LocalDate d) {
-        _deadlineForApplication = d;
-    }
-
-    public void removeAudition(Audition a) {
-        _auditions.remove(a);
-    }
-
-    public void apply(Candidate c) {
-        _candidates.add(c);
-    }
-
-    public void createGroups() {
-        int lowerBorder = 0;
-        for (int i = 0; i < _auditions.size(); i++) {
-            ArrayList<Candidate> tmp = new ArrayList<Candidate>();
-            for (int j = lowerBorder; j < lowerBorder + _auditions.get(i).getMaxNumberOfCandidates(); j++) {
-                tmp.add(_candidates.get(j));
-                lowerBorder += _auditions.get(i).getMaxNumberOfCandidates();
-            }
-            Group g = new Group(tmp);
-            _auditions.get(i).setGroup(g);
-        }
-    }
-
-    public void newRound(){
-        _candidates = null;
-        for(int i = 0;i<_auditions.size();i++)
-            _candidates.addAll(_auditions.get(i).getPassingCandidates());
-        // Audicije su samo za jednu rundu
-        // Pre pocetka nove runde moraju se zakazati nove audicije
-        _auditions = null;
-    }
+    public void setDeadline(LocalDate ld) { _deadlineForApplication = ld; }
+    public LocalDate getDeadline() { return _deadlineForApplication; }
+    
+    public void setAuditions(ArrayList<Audition> al) { _auditions = al; }
+    public ArrayList<Audition> getAuditions(){ return _auditions; }
+    
+    public void setCandidate(ArrayList<Candidate> cl) { _candidates = cl; } 
+    public ArrayList<Candidate> getCandidates(){ return _candidates; }
 }

@@ -13,6 +13,8 @@ import javax.persistence.TableGenerator;
 public class Judge extends Person{
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "IdJudge")
 	private int _idJudge;
 	
 	public Judge() {
@@ -21,13 +23,5 @@ public class Judge extends Person{
 	
     public Judge(String name,String surname, int age) {
         super(name,surname, age);
-    }
-
-    public void giveGrade(Candidate c, int grade){
-        c.setGrade(grade);
-    }
-
-    public void giveImpression(Candidate c, String impression){
-        c.setImpression(impression);
     }
 }

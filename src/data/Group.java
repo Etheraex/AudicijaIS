@@ -15,6 +15,8 @@ import java.util.ArrayList;
 public class Group {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "IdGroup")
 	private int _idGroup;
 	
 	public Group() {

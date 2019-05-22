@@ -15,10 +15,16 @@ import javax.persistence.TableGenerator;
 public class Audition {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "IdAudition")
 	private int _idAudition;
 	
+	@Column(name = "date")
     private LocalDate _date;
+	
+	@Column(name = "maxNumberOfCandidates")
     private int _maxNumberOfCandidates;
+	
     private ArrayList<Judge> _judges = new ArrayList<Judge>();
     private Group _group;
     private Venue _venue;
@@ -33,34 +39,19 @@ public class Audition {
         _venue = v;
     }
 
-    public void addJudge(Judge j) {
-        _judges.add(j);
-    }
+    public LocalDate getDate() {return _date;}
+    public void setDate(LocalDate ld) { _date = ld; }
 
-    public void removeJudge(Judge j) {
-        _judges.remove(j);
-    }
-
-    public ArrayList<Candidate> getPassingCandidates() {
-        this.removeLosers();
-        return _group.getCandidates();
-    }
-
-    public void removeLosers() {
-        for (int i = _group.getNumberOfCandidates() - 1; i >= 0; i--) {
-            Candidate tmp = _group.getCandidate(i);
-            if (!tmp.passingGrade())
-                _group.removeCandidate(tmp);
-            else
-                tmp.setRound();
-        }
-    }
-
-    public int getMaxNumberOfCandidates(){
-        return _maxNumberOfCandidates;
-    }
-
-    public void setGroup(Group g){
-        _group = g;
-    }
+    public ArrayList<Judge> getJudges() {return _judges;}
+    public void setJudges(ArrayList<Judge> jl) { _judges = jl; }
+    
+    public int getMaxNumberOfCandidates(){ return _maxNumberOfCandidates; }
+    public void setMaxNumberOfCandidates(int x) { _maxNumberOfCandidates = x; }
+    
+    public void setVenue(Venue v ) { _venue = v; }
+    public Venue getVenue() { return _venue; } 
+    
+    public void setGroup(Group g ) { _group = g; }
+    public Group getGroup() { return _group; } 
+    
 }

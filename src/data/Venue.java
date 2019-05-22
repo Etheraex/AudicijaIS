@@ -13,29 +13,23 @@ import javax.persistence.TableGenerator;
 public class Venue{
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="IdVenue")
 	private int _idVenue;
-	@Column(name = "city")
+	
+	@Column(name = "City")
     private String _city;
-	@Column(name = "capacity")
+	
+	@Column(name = "Capacity")
     private int _capacity;
 
     public Venue(){
     	
     }
     
-    public String getCity(){
-        return _city;
-    }
+    public String getCity(){ return _city; }
+    public void setCity(String c) { _city = c; }
     
-    public void setCity(int c) {
-    	_capacity = c;
-    }
-    
-    public void setCity(String c) {
-    	_city = c;
-    }
-    
-    public int getCapacity(){
-        return _capacity;
-    }
+    public void setCapacity(int c) { _capacity = c; }
+    public int getCapacity(){ return _capacity; }
 }

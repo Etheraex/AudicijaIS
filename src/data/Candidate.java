@@ -14,13 +14,18 @@ import java.util.ArrayList;
 public class Candidate extends Person {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "IdCandidate")
     private int _idCandidate;
 	
     private ArrayList<Integer> _grades = new ArrayList<Integer>();
     private ArrayList<String> _impressions = new ArrayList<String>();
+    
+    @Column(name = "Email")
     private String _email;
+    
+    @Column(name = "Round")
     private int _round;
-    private Caretaker _caretaker;
     
     public Candidate(){
     	super();
@@ -33,43 +38,17 @@ public class Candidate extends Person {
         _round = 1;
     }
 
-    public void setGrade(int grade){
-        _grades.add(grade);
-    }
+    public void setGrades(ArrayList<Integer> gr){ _grades = gr; }
+    public ArrayList<Integer> getGrades() { return _grades; }
+    
+    public void setImpressions(ArrayList<String> imp){ _impressions = imp; }
+    public ArrayList<String> getImpressions() { return _impressions; }
+    
+    public void setRound(){  _round++; }
+    public int getRound() { return _round; }
+    
+    public int getId() { return _idCandidate; }
 
-    public void setImpression(String impression){
-        _impressions.add(impression);
-    }
-
-    public void sing(){
-        System.out.println("Candidate: "+ ToString() +": "+ _idCandidate + " has started singing");
-        System.out.println("Candidate: "+ ToString() +": "+ _idCandidate + " has finished singing");
-    }
-
-    public boolean passingGrade(){
-        int sum = 0;
-        for(int g : _grades)
-            sum+=g;
-        return (sum / _grades.size() > 8) ? true : false;
-    }
-
-    public void setRound(){
-        _round++;
-    }
-
-    public int getId(){
-        return _idCandidate;
-    }
-
-    public int getRound(){
-        return _round;
-    }
-
-    public String getEmail(){
-        return _email;
-    }
-
-    public void setCaretaker(Caretaker c){
-        _caretaker = c;
-    }
+    public String getEmail(){ return _email; }
+    public void setEmail(String e) { _email = e; }
 }
