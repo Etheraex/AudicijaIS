@@ -33,11 +33,16 @@ public class VenueController{
 		service.addVenue(venue);
 	}
 	
-	public void removeVenue(int id) {
+	public void removeVenue() {
 		service.removeVenue(id);
 	}
 	
-	public void editVenue(int id, String city) {
+	public void editVenue() {
 		service.editVenue(id, city);
 	}
 }
+
+/*	<!--  <p:outputLabel value = "Id"/>
+<p:inputText value="#{venueController.id}"></p:inputText>
+<p:commandButton value= "Obrisi" action="#{venueController.removeVenue()}"></p:commandButton> -->
+*/

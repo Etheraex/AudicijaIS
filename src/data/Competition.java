@@ -20,12 +20,12 @@ public class Competition {
 	private int _idCompetition;
 	
 	@Column(name = "DeadlineForApplication")
-    private LocalDate _deadlineForApplication;
+    private String _deadlineForApplication;
 
     public Competition() {
     	
     }
     
-    public void setDeadline(LocalDate ld) { _deadlineForApplication = ld; }
-    public LocalDate getDeadline() { return _deadlineForApplication; }
+    public void setDeadline(String ld) { _deadlineForApplication = ld; }
+    public String getDeadline() { return _deadlineForApplication; }
 }

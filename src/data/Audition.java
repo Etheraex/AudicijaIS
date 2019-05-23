@@ -19,7 +19,7 @@ public class Audition {
 	private int _idAudition;
 	
 	@Column(name = "date")
-    private LocalDate _date;
+    private String _date;
 	
 	@Column(name = "maxNumberOfCandidates")
     private int _maxNumberOfCandidates;
@@ -28,13 +28,13 @@ public class Audition {
     	
     }
     
-    public Audition(int maxCandidates, LocalDate d) {
+    public Audition(int maxCandidates, String d) {
         _date = d;
         _maxNumberOfCandidates = maxCandidates;
     }
 
-    public LocalDate getDate() {return _date;}
-    public void setDate(LocalDate ld) { _date = ld; }
+    public String getDate() {return _date;}
+    public void setDate(String ld) { _date = ld; }
     
     public int getMaxNumberOfCandidates(){ return _maxNumberOfCandidates; }
     public void setMaxNumberOfCandidates(int x) { _maxNumberOfCandidates = x; }

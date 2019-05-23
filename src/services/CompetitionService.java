@@ -28,7 +28,7 @@ public class CompetitionService implements ICompetitionService {
 	}
 
 	@Override
-	public void setDate(int id, LocalDate t) {
+	public void setDate(int id, String t) {
 		Competition c = em.find(Competition.class, id);
 		c.setDeadline(t);
 		System.out.println("Promenili ste rok");

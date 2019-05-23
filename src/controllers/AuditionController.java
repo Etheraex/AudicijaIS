@@ -19,14 +19,22 @@ public class AuditionController {
 
 	private Audition audition = new Audition();
 	private int id = 0;
-	private LocalDate date = LocalDate.MIN;
+	private String date = "";
 	private int max = 0;
 	private Group group = null; 
 	private Venue venue = null;
 	private ArrayList<Judge> judges = new ArrayList<Judge>();
 	
-	public LocalDate getDate() {return date;}
-	public void setDate(LocalDate ld) {date = ld; }
+	public String getDate() {return date;}
+	public void setDate(String ld) {date = ld; }
+	
+	public void setAudition(Audition a) {
+		audition = a;
+	}
+	
+	public Audition getAudition() {
+		return audition;
+	}
 	
 	public int getId() {return id;}
 	public void setId(int m) { id = m;}

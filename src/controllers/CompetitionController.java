@@ -1,6 +1,5 @@
 package controllers;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.ejb.EJB;
@@ -15,7 +14,7 @@ public class CompetitionController{
 
 	private Competition competition = new Competition();
 	private int id = 0;
-	private LocalDate deadline = LocalDate.MIN;
+	private String deadline = "";
 	
 	
 	@EJB
@@ -24,8 +23,8 @@ public class CompetitionController{
 	public void setId(int i) { id = i; }
 	public int getId() {return id;}
 	
-	public void setDeadline(LocalDate d) { deadline = d; }
-	public LocalDate getDeadline() { return deadline; }
+	public void setDeadline(String d) { deadline = d; }
+	public String getDeadline() { return deadline; }
 	
 	public Competition getCompetition() { return competition; } 
 	public void setCompetition(Competition c) { competition = c; } 
@@ -38,7 +37,7 @@ public class CompetitionController{
 		service.deleteCompetition(id);
 	}
 	
-	public void setDate(int id, LocalDate deadline) {
+	public void setDate(int id, String deadline) {
 		service.setDate(id, deadline);
 	}
  	

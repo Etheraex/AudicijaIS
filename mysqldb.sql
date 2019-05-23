@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 23, 2019 at 08:17 AM
+-- Generation Time: May 23, 2019 at 12:07 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -31,13 +31,21 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `audition`;
 CREATE TABLE IF NOT EXISTS `audition` (
   `IdAudition` int(11) NOT NULL AUTO_INCREMENT,
-  `Date` varchar(25) NOT NULL,
-  `CompetitionFK` int(11) NOT NULL,
-  `GroupFK` int(11) NOT NULL,
+  `Date` varchar(25) DEFAULT NULL,
+  `CompetitionFK` int(11) DEFAULT NULL,
+  `GroupFK` int(11) DEFAULT NULL,
+  `maxNumberOfCandidates` int(11) NOT NULL,
   PRIMARY KEY (`IdAudition`),
   KEY `CompetitionFK` (`CompetitionFK`),
   KEY `GroupFK` (`GroupFK`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `audition`
+--
+
+INSERT INTO `audition` (`IdAudition`, `Date`, `CompetitionFK`, `GroupFK`, `maxNumberOfCandidates`) VALUES
+(1, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -48,15 +56,37 @@ CREATE TABLE IF NOT EXISTS `audition` (
 DROP TABLE IF EXISTS `candidate`;
 CREATE TABLE IF NOT EXISTS `candidate` (
   `IdCandidate` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(45) NOT NULL,
-  `Surname` varchar(45) NOT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `Surname` varchar(45) DEFAULT NULL,
   `Age` int(11) NOT NULL,
   `CompetitionFK` int(11) DEFAULT NULL,
-  `Email` varchar(45) NOT NULL,
+  `Email` varchar(45) DEFAULT NULL,
   `Round` int(11) NOT NULL,
   PRIMARY KEY (`IdCandidate`),
   KEY `CompetitionFK` (`CompetitionFK`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `candidate`
+--
+
+INSERT INTO `candidate` (`IdCandidate`, `Name`, `Surname`, `Age`, `CompetitionFK`, `Email`, `Round`) VALUES
+(3, NULL, NULL, 0, NULL, NULL, 0),
+(4, NULL, NULL, 0, NULL, NULL, 0),
+(5, NULL, NULL, 0, NULL, NULL, 0),
+(6, NULL, NULL, 0, NULL, NULL, 0),
+(7, NULL, NULL, 0, NULL, NULL, 0),
+(8, NULL, NULL, 0, NULL, NULL, 0),
+(9, NULL, NULL, 0, NULL, NULL, 0),
+(10, NULL, NULL, 0, NULL, NULL, 0),
+(11, NULL, NULL, 0, NULL, NULL, 0),
+(12, NULL, NULL, 0, NULL, NULL, 0),
+(13, NULL, NULL, 0, NULL, NULL, 0),
+(14, NULL, NULL, 0, NULL, NULL, 0),
+(15, NULL, NULL, 0, NULL, NULL, 0),
+(16, NULL, NULL, 0, NULL, NULL, 0),
+(17, NULL, NULL, 0, NULL, NULL, 0),
+(18, NULL, NULL, 0, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -67,9 +97,19 @@ CREATE TABLE IF NOT EXISTS `candidate` (
 DROP TABLE IF EXISTS `competition`;
 CREATE TABLE IF NOT EXISTS `competition` (
   `IdCompetition` int(11) NOT NULL AUTO_INCREMENT,
-  `DeadlineForApplication` varchar(25) NOT NULL,
+  `DeadlineForApplication` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`IdCompetition`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `competition`
+--
+
+INSERT INTO `competition` (`IdCompetition`, `DeadlineForApplication`) VALUES
+(1, NULL),
+(2, NULL),
+(3, NULL),
+(4, NULL);
 
 -- --------------------------------------------------------
 
@@ -125,12 +165,25 @@ CREATE TABLE IF NOT EXISTS `judge` (
 DROP TABLE IF EXISTS `venue`;
 CREATE TABLE IF NOT EXISTS `venue` (
   `IdVenue` int(11) NOT NULL AUTO_INCREMENT,
-  `City` varchar(25) NOT NULL,
+  `City` varchar(25) DEFAULT NULL,
   `Capacity` int(15) NOT NULL,
   `AuditionFK` int(11) DEFAULT NULL,
   PRIMARY KEY (`IdVenue`),
   KEY `AuditionFK` (`AuditionFK`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `venue`
+--
+
+INSERT INTO `venue` (`IdVenue`, `City`, `Capacity`, `AuditionFK`) VALUES
+(1, NULL, 0, NULL),
+(2, NULL, 0, NULL),
+(3, NULL, 0, NULL),
+(4, NULL, 0, NULL),
+(5, NULL, 0, NULL),
+(6, NULL, 0, NULL),
+(7, NULL, 0, NULL);
 
 --
 -- Constraints for dumped tables
