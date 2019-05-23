@@ -13,12 +13,14 @@ public class VenueController{
 	private String city = "";
 	private int capacity = 0;
 	private int id = 0;
-	
+
 	@EJB
 	private IVenueService service;
 	
 	public Venue getVenue() {return venue;}
 	public void setVenue(Venue v) { venue = v;}
+	
+	
 	
 	public int getId() { return id; }
 	public void setId(int i) { id = i; }
@@ -29,7 +31,9 @@ public class VenueController{
 	public String getCity() {return city;}
 	public void setCity(String c) {city = c;}
 	
-	public void saveVenue(Venue venue) {
+	public void saveVenue() {
+		venue.setCapacity(capacity);
+		venue.setCity(city);
 		service.addVenue(venue);
 	}
 	
@@ -37,12 +41,7 @@ public class VenueController{
 		service.removeVenue(id);
 	}
 	
-	public void editVenue() {
-		service.editVenue(id, city);
+	public void updateVenue() {
+		service.editVenue(id, capacity);
 	}
 }
-
-/*	<!--  <p:outputLabel value = "Id"/>
-<p:inputText value="#{venueController.id}"></p:inputText>
-<p:commandButton value= "Obrisi" action="#{venueController.removeVenue()}"></p:commandButton> -->
-*/

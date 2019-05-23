@@ -26,6 +26,7 @@ public class Candidate extends Person {
     
     public Candidate(){
     	super();
+    	_round = 0;
     }
     
     public Candidate(String name,String surname, int age, int id, String email) {

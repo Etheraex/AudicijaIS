@@ -10,15 +10,27 @@
 	<title>Audicija</title>
 </h:head> 
 <body> 
+<h:form>
 	<h:link value = "Povratak nazad" outcome="HomePage.xhtml"></h:link>
-	
-	<p:outputLabel value = "Datum odrzavanja"/>
-	<p:inputText value="#{auditionController.date}"></p:inputText>
-	
-	<p:outputLabel value = "Maksimalan broj takmicara"/>
-	<p:inputText value="#{auditionController.max}"></p:inputText>
-	
-	<p:commandButton value= "Sacuvaj" action="#{auditionController.createAudition(auditionController.audition)}"></p:commandButton>	
-	
+	<div>
+		<h:outputLabel value = "Datum odrzavanja"/>
+		<h:inputText value="#{auditionController.date}"></h:inputText>
+		<br/>
+		<h:outputLabel value = "Maksimalan broj takmicara"/>
+		<h:inputText value="#{auditionController.max}"></h:inputText>
+		<br/>
+		<h:commandButton value= "Sacuvaj" action="#{auditionController.createAudition()}"></h:commandButton>	
+	</div>
+</h:form>
+<br/>
+<br/>
+<h:form>
+	<div>
+		<h:outputLabel value = "Id"/>
+		<h:inputText value="#{auditionController.id}"></h:inputText>
+		<br/>
+		<h:commandButton value= "Obrisi" action="#{auditionController.deleteAudition()}"></h:commandButton>	
+	</div>
+</h:form>
 </body> 
 </html>

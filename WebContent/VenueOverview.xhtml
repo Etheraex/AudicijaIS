@@ -11,16 +11,43 @@
 <body> 
 	<h:link value = "Povratak nazad" outcome="HomePage.xhtml"></h:link>
 	
-	<p:outputLabel value = "Grad"/>
-	<p:inputText value="#{venueController.city}"></p:inputText>
+<h:form>
+	<div>
+		<h:outputLabel value = "Grad"/>
+		<h:inputText value="#{venueController.city}"></h:inputText>
+		<br/>
+		<h:outputLabel value = "Kapacitet"/>
+		<h:inputText value="#{venueController.capacity}"></h:inputText>
+		<br/>
+		<h:commandButton value= "Sacuvaj" action="#{venueController.saveVenue()}"></h:commandButton>
+		<br/>
+		<br/>	
+	</div>
 	
-	<p:outputLabel value = "Kapacitet"/>
-	<p:inputText value="#{venueController.capacity}"></p:inputText>
-	
-	<p:commandButton value= "Sacuvaj" action="#{venueController.saveVenue(venueController.venue)}"></p:commandButton>	
-	
+</h:form>
 
-	
+<h:form>
+	<div>
+		<h:outputLabel value = "Id za brisanje:"/>
+		<h:inputText value="#{venueController.id}"></h:inputText>
+		<br/>
+		<h:commandButton value= "Obrisi" action="#{venueController.removeVenue()}"></h:commandButton>	
+		<br/>
+		<br/>
+	</div>
+</h:form>
+
+<h:form>
+	<div>
+		<h:outputLabel value = "Id za izmenu: "/>
+		<h:inputText value="#{venueController.id}"></h:inputText>
+		<br/>
+		<h:outputLabel value = "Novi kapacitet"/>
+		<h:inputText value="#{venueController.capacity}"></h:inputText>
+		<br/>
+		<h:commandButton value= "Izmeni" action="#{venueController.updateVenue()}"></h:commandButton>	
+	</div>
+</h:form>	
 	
 </body> 
 </html>

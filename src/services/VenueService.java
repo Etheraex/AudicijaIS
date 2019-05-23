@@ -25,10 +25,9 @@ public class VenueService implements IVenueService {
 	}
 
 	@Override
-	public void editVenue(int id, String city) {
+	public void editVenue(int id, int capacity) {
 		Venue v = em.find(Venue.class,id);
-		v.setCity(city);
-		System.out.println("Promenili ste grad!");
+		v.setCapacity(capacity);
 	}
 
 }

@@ -25,5 +25,10 @@ public class CandidateService implements ICandidateService {
 		Candidate c = em.find(Candidate.class, id);
 		em.remove(c);
 	}
+	
+	public void editCandidate(String email, int id) {
+		Candidate c = em.find(Candidate.class, id);
+		c.setEmail(email);
+	}
 
 }

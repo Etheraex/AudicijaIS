@@ -21,9 +21,6 @@ public class AuditionController {
 	private int id = 0;
 	private String date = "";
 	private int max = 0;
-	private Group group = null; 
-	private Venue venue = null;
-	private ArrayList<Judge> judges = new ArrayList<Judge>();
 	
 	public String getDate() {return date;}
 	public void setDate(String ld) {date = ld; }
@@ -41,25 +38,18 @@ public class AuditionController {
 	
 	public int getMax() {return max;}
 	public void setMax(int m) { max = m;}
-	
-	public Group getGroup() {return group;}
-	public void setGroup(Group g) { group = g;}
-	
-	public Venue getVenue() {return venue;}
-	public void setVenue(Venue v) { venue = v;}
-	
-	public ArrayList<Judge> getJudges() {return judges;}
-	public void setJudges( ArrayList<Judge> j) {judges = j;}
  	
 	@EJB
 	private IAuditionService service;
 	
 	
-	public void createAudition(Audition audition) {
+	public void createAudition() {
+		audition.setDate(date);
+		audition.setMaxNumberOfCandidates(max);
 		service.createAudition(audition);
 	}
 	
-	public void deleteAudition(int id) {
+	public void deleteAudition() {
 		service.removeAudition(id);
 	}
 	

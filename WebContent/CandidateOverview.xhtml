@@ -11,22 +11,46 @@
 <body> 
 	<h:link value = "Povratak nazad" outcome="HomePage.xhtml"></h:link>
 	
-		
-	<p:outputLabel value = "Ime"/>
-	<p:inputText value="#{candidateController.name}"></p:inputText>
-	
-	<p:outputLabel value = "Prezime"/>
-	<p:inputText value="#{candidateController.surname}"></p:inputText>
-	
-	<p:outputLabel value = "Email"/>
-	<p:inputText value="#{candidateController.email}"></p:inputText>
-	
-	<p:outputLabel value = "Starost"/>
-	<p:inputText value="#{candidateController.age}"></p:inputText>
-	
-	<p:commandButton value= "Sacuvaj" action="#{candidateController.createCandidate(candidateController.candidate)}"></p:commandButton>	
-	
-	
+<h:form>
+	<div>
+		<h:outputLabel value = "Ime"/>
+		<h:inputText value="#{candidateController.name}"></h:inputText>
+		<br/>
+		<h:outputLabel value = "Prezime"/>
+		<h:inputText value="#{candidateController.surname}"></h:inputText>
+		<br/>
+		<h:outputLabel value = "Email"/>
+		<h:inputText value="#{candidateController.email}"></h:inputText>
+		<br/>
+		<h:outputLabel value = "Starost"/>
+		<h:inputText value="#{candidateController.age}"></h:inputText>
+		<br/>
+		<h:commandButton value= "Sacuvaj" action="#{candidateController.createCandidate()}"></h:commandButton>	
+	</div>
+</h:form>
+<br/>
+<br/>
+<h:form>
+	<div>
+		<h:outputLabel value = "Id"/>
+		<h:inputText value="#{candidateController.id}"></h:inputText>
+		<br/>
+		<h:commandButton value= "Obrisi" action="#{candidateController.deleteCandidate()}"></h:commandButton>
+	</div>
+</h:form>
+<br/>
+<br/>
+<h:form>
+	<div>
+		<h:outputLabel value = "Email"/>
+		<h:inputText value="#{candidateController.email}"></h:inputText>
+		<br/>
+		<h:outputLabel value = "Id"/>
+		<h:inputText value="#{candidateController.id}"></h:inputText>
+		<br/>
+		<h:commandButton value= "Izmeni" action="#{candidateController.updateCandidate()}"></h:commandButton>
+	</div>
+</h:form>
 	
 </body> 
 </html>

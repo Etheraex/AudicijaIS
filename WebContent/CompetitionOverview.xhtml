@@ -11,10 +11,24 @@
 <h:body>
 <h:link value = "Povratak nazad" outcome="HomePage.xhtml"></h:link>
 
-	<p:outputLabel value = "Rok za prijavu"/>
-	<p:inputText value="#{competitionController.deadline}"></p:inputText>
-	
-	<p:commandButton value= "Sacuvaj" action="#{competitionController.createCompetition(competitionController.competition)}"></p:commandButton>	
+<h:form>
+	<div>
+		<h:outputLabel value = "Rok za prijavu"/>
+		<h:inputText value="#{competitionController.deadline}"></h:inputText>
+		
+		<h:commandButton value= "Sacuvaj" action="#{competitionController.createCompetition()}"></h:commandButton>
+	</div>
+</h:form>
+	<br/>
+	<br/>
+<h:form>
+	<div>
+		<h:outputLabel value = "Id za brisanje"/>
+		<h:inputText value="#{competitionController.id}"></h:inputText>
+		
+		<h:commandButton value= "Obrisi" action="#{competitionController.deleteCompetition()}"></h:commandButton>
+	</div>
+</h:form>
 
 </h:body>
 </html>

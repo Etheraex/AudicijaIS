@@ -29,16 +29,12 @@ public class CompetitionController{
 	public Competition getCompetition() { return competition; } 
 	public void setCompetition(Competition c) { competition = c; } 
 	
-	public void createCompetition(Competition competition) {
+	public void createCompetition() {
+		competition.setDeadline(deadline);
 		service.createCompetition(competition);
 	}
 	
-	public void deleteCompetition(int id) {
+	public void deleteCompetition() {
 		service.deleteCompetition(id);
 	}
-	
-	public void setDate(int id, String deadline) {
-		service.setDate(id, deadline);
-	}
- 	
 }

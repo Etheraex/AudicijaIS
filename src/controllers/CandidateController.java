@@ -16,7 +16,6 @@ public class CandidateController {
 	private String surname = "";
 	private String email = "";
 	private int age = 0;
-	private int round = 0;
 	
 	public Candidate getCandidate() {return candidate;}
 	public void setCandidate(Candidate c ) {candidate = c; } 
@@ -29,9 +28,6 @@ public class CandidateController {
 
     public int getAge() { return age; }
     public void setAge(int a) { age = a; }
-	
-    public void setRound(){  round++; }
-    public int getRound() { return round; }
     
     public int getId() { return id; }
     public void setId(int idp) {id = idp; }
@@ -42,7 +38,12 @@ public class CandidateController {
 	@EJB
 	private ICandidateService service;
 	
-	public void createCandidate(Candidate candidate) {
+	public void createCandidate() {
+		candidate.setAge(age);
+		candidate.setEmail(email);
+		candidate.setName(name);
+		candidate.setSurname(surname);
+		candidate.setRound();
 		service.createCandidate(candidate);
 	}
 	
@@ -50,11 +51,8 @@ public class CandidateController {
 		service.deleteCandidate(id);
 	}
 	
+	public void updateCandidate() {
+		service.editCandidate(email,id);
+	}
+	
 }
-
-
-/*
- <p:outputLabel value = "Id"/>
-	<p:inputText value="#{candidateController.id}"></p:inputText>
-	<p:commandButton value= "Obrisi" action="#{candidateController.deleteCandidate()}"></p:commandButton>	 
- */

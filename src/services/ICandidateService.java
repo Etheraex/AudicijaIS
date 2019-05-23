@@ -9,4 +9,5 @@ import data.Candidate;
 public interface ICandidateService {
 	public void createCandidate(Candidate c);
 	public void deleteCandidate(int id);
+	public void editCandidate(String email, int id);
 }
